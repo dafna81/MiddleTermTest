@@ -5,25 +5,27 @@
     android:layout_width="100dp"
     android:layout_height="100dp"
     app:cardCornerRadius="50dp"
-    app:strokeColor="#29B6F6"
-    app:strokeWidth="2dp">
+    app:strokeWidth="0dp">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/round_image_view_front_coin"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop"
-        android:src="@drawable/coin_india"
-        android:visibility="gone"
-        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
-
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_front"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:visibility="visible"
-        app:cardCornerRadius="50dp">
+        app:cardCornerRadius="50dp"
+        app:strokeColor="#29B6F6"
+        app:strokeWidth="2dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/round_image_view_front_coin"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/coin_india"
+            android:visibility="gone"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
 
         <TextView
             android:id="@+id/text_view_front_coin"
@@ -33,16 +35,18 @@
             android:layout_margin="4dp"
             android:padding="4dp"
             android:text="@string/usd"
-            android:textColor="@color/black"/>
-    </androidx.cardview.widget.CardView>
+            android:textColor="@color/black" />
+    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:id="@+id/card_back"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:visibility="gone"
-        app:cardCornerRadius="50dp">
+        app:cardCornerRadius="50dp"
+        app:strokeColor="#29B6F6"
+        app:strokeWidth="2dp">
 
         <TextView
             android:id="@+id/text_view_back_coin"
@@ -53,7 +57,7 @@
             android:padding="4dp"
             android:text="@string/ils_3_53" />
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
 
 </com.google.android.material.card.MaterialCardView>

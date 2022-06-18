@@ -4,6 +4,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="flip_the_coins">Flip the coins</string>
     <string name="usd">USD</string>
-    <string name="resultInShekels">%1$s 1 = ILS %2$s</string>
+    <string name="resultInShekels">%s 1 = ILS %s</string>
     <string name="ils_3_53">ILS 3.53</string>
 </resources>

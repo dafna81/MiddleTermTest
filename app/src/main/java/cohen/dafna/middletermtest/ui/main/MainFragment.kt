@@ -7,10 +7,11 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import cohen.dafna.middletermtest.Logger
 import cohen.dafna.middletermtest.databinding.FragmentMainBinding
-import cohen.dafna.middletermtest.ui.CurrencyAdapter
+import cohen.dafna.middletermtest.adapters.CurrencyAdapter
+import cohen.dafna.middletermtest.ui.flipCard
 
 class MainFragment : Fragment() {
 
@@ -32,9 +33,17 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.coinsLiveData.observe(viewLifecycleOwner) {
-            binding.recyclerView.adapter = CurrencyAdapter(it)
-            binding.recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+
+        viewModel.coinsLiveData.observe(viewLifecycleOwner) { coins ->
+            val adapter = CurrencyAdapter(coins) { v1, v2 ->
+                flipCard(requireContext(), v1, v2)
+            }
+            coins.forEach { coin ->
+                adapter.notifyItemChanged(coins.indexOf(coin))
+            }
+            binding.recyclerView.layoutManager =
+                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            binding.recyclerView.adapter = adapter
         }
 
         viewModel.errorMessage.observe(viewLifecycleOwner) {

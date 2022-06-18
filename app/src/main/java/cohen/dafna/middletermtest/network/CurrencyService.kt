@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 interface CurrencyService {
-    @GET(ENDPOINT)
+    @GET("NGHJ3UTW")
     suspend fun getAllRates(): CurrencyResponse
 
     companion object {
